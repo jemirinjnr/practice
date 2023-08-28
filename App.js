@@ -5,7 +5,6 @@ import ClassCounter from './components/ClassCounter';
 export default function App() {
   return (
     <View style={styles.container}>
-      <ClassCounter/>
     </View>
   );
 }
