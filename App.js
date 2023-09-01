@@ -1,19 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import ClassCounter from './components/ClassCounter';
+import { SafeAreaView, StyleSheet, Text, View, Button } from 'react-native';
+import React, { useEffect, useState } from 'react';
 
-export default function App() {
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [data, setData] = useState(100);
+
+  useEffect(() => {
+  },[count])
+
   return (
-    <View style={styles.container}>
-    </View>
+    <>
+      <SafeAreaView>
+        <Text style={{ fontSize: 30 }}>
+          LifeCycle With useEffect {count}
+        </Text>
+        <Button title='Update Counter' onPress={() => setCount(count + 1)} />
+      </SafeAreaView>
+      <View>
+        <Text style={{ fontSize: 30 }}>
+          useEffect as componentDidUpdate
+        </Text>
+        <Text style={{ fontSize: 30, color: 'green' }}>
+          Count: {count}
+        </Text>
+        <Text style={{ fontSize: 30, color: 'green' }}>
+          Data: {data}
+        </Text>
+        <Button title='Update Data' onPress={() => setData(data + 1)} />
+      </View>
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
